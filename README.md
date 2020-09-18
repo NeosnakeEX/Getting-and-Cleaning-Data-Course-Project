@@ -49,13 +49,15 @@ activity_labels <- read.table('activity_labels.txt')
 
 activity_labels <- as.vector(activity_labels[,2])
 
+Next,
+The for loop goes through and renames the integers in the Activities column using the activity_labels vector. (Ex. 1 gets turned into 'WALKING')
+
 for (i in 1:length(activity_labels)){
 
   merged_data$Activities <- gsub(i,activity_labels[i],merged_data$Activities)
   
 }
 
-The for loop goes through and renames the integers in the Activities column using the activity_labels vector. (Ex. 1 gets turned into 'WALKING')
 
 The next step is to read in the subject test and training data and then merging them into one variable, total_subjects, using the rbind function. Then, the column name is renamed to 'Subjects'.
 
