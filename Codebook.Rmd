@@ -1,0 +1,26 @@
+---
+title: "Course Project Codebook"
+author: "Andrew"
+date: "9/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+The purpose of this codebook is to describe how tidy data is generated from the test and training data provided.
+
+## Raw Data
+
+The input data, X_test.txt, X_train.txt, y_test.txt, and y_train.txt are read in. The other raw data, subject_test.txt, activity_labels, and subject_train.txt are read in as well. These are the original data provided. Other variables, activity_labels.txt and mean_std_col_indices.
+
+## Tidy Data
+
+The test and train data sets were merged into one variable named merged_data set. Using the mean_std_col_indices variable, which contains the indices which locate the mean and std variables, the columns were renamed to their appropriate names. Then, the column which contained the numbers 1-6 were renamed to their appropriate name using the activity_labels.txt.
+
+## Final Tidy Data
+
+The step in tidying the data is to get the mean of each variable for each activity and each subject. To do this, the subject data sets are merged into one variable named total_subjects. This data set is added to the merged data set and named merged_data_with_subjects. The data set is then grouped by activity and subject where the means of each variable are calculated. The result is stored in a variable called averaged.
